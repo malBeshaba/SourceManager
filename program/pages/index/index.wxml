@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<scroll-view class="container" scroll-y  bindscrolltolower="lower">
+  <view class='title'>
+    <text class='cn'>首页</text>
+  </view>
+</scroll-view>
