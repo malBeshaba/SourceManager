@@ -1,28 +1,57 @@
-<!--index.wxml-->
-<!-- <scroll-view class="container" scroll-y  bindscrolltolower="lower">
-  <view class='title'>
-    <text class='cn'>首页</text>
-  </view>
-</scroll-view> -->
-
- <scroll-view   class="container"
-    scroll-y style="width: 100%; height: 400px;"
-    refresher-enabled="{{true}}"
-    refresher-threshold="{{80}}"
-    refresher-default-style="none"
-    refresher-background="lightgreen"
-    bindrefresherpulling="{{refresh.onPulling}}"
-  >
-    <view slot="refresher" class="refresh-container"
-      style="display: block; width: 100%; height: 80px; background: #ECBDF0; display: flex; align-items: center;"
+<view class="container">
+  <scroll-view  
+      scroll-y style="width: 100%; height: 400px;"
+      refresher-enabled="{{true}}"
+      refresher-threshold="{{80}}"
+      refresher-default-style="none"
+      refresher-background="lightgreen"
+      bindrefresherpulling="{{refresh.onPulling}}"
     >
-      <view class="view1" style="position: absolute; color: white; text-align: center; width: 100%;">
-        下拉刷新
+      <view slot="refresher" class="refresh-container"
+        style="display: block; width: 100%; height: 80px; background: #ECBDF0; display: flex; align-items: center;"
+      >
+        <view class="view1" style="position: absolute; color: black; text-align: center; width: 100%;">
+          <text>下拉刷新</text>
+        </view>
+      </view>
+
+      <view class="advertisement">
+        <swiper indicator-dots="true" autoplay="true" interval="2000">
+            <swiper-item>
+              <navigator hover-class="none" url="/pages/list/index">
+                <image src="/images/edit.png"></image>
+              </navigator>
+            </swiper-item>
+            <swiper-item>
+              <navigator hover-class="none" url="/pages/list/index">
+                <image src="/images/edit.png"></image>
+              </navigator>
+            </swiper-item>
+            <swiper-item>
+              <navigator hover-class="none" url="/pages/list/index">
+                <image src="/images/edit.png"></image>
+              </navigator>
+            </swiper-item>
+        </swiper>
+      </view>
+    
+    <view class='list'>
+      <view class='item' wx:for="{{list}}">
+        <navigator hover-class="none" url="/pages/cart.index">
+          <image class='product' src="/images/edit.png"></image>
+          <text class='text'>{{item.title}}.</text>
+        </navigator>
+        <view class='price'>
+          <text>￥{{item.price}}</text>
+          <view  bindtap='addCart' data-item="{{item}}">
+          <image style='width:20px;height:20px;' src='/images/Shopping.png'></image>
+          </view>
+        </view>
       </view>
     </view>
-
-    <view id="demo1" class="scroll-view-item_H demo-text-1"></view>
-    <view id="demo2"  class="scroll-view-item_H demo-text-2"></view>
-    <view id="demo3" class="scroll-view-item_H demo-text-3"></view>
-</scroll-view>
+      <view id="demo1" class="scroll-view-item_H demo-text-1"></view>
+      <view id="demo2"  class="scroll-view-item_H demo-text-2"></view>
+      <view id="demo3" class="scroll-view-item_H demo-text-3"></view>
+  </scroll-view>
+</view>
      
