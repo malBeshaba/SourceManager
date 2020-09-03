@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index",
+    "pages/index/index",
     "pages/cart/index",
     "pages/user/index"
   ],
@@ -19,7 +19,7 @@
       {
         "selectedIconPath": "images/home_page_n.png",
         "iconPath": "images/home_page_y.png",
-        "pagePath": "pages/index",
+        "pagePath": "pages/index/index",
         "text": "首页"
       },
       {

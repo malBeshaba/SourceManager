@@ -21,3 +21,13 @@
   font-size: 12px;
 }
 
+.page-section-spacing{
+  margin-top: 30px;
+}
+
+.scroll-view-item_H{
+  display: inline-block;
+  width: 100%;
+  height: 150px;
+}
+
