@@ -1,7 +1,18 @@
 const order = ['demo1', 'demo2', 'demo3']
 
 Page({
- 
+
+  data: {
+
+    list: [], // 数据列表
+    imgUrls: null,
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    col1: [],
+    col2: []
+  },
+
   onPulling(e) {
     console.log('onPulling:', e)
   },
@@ -22,11 +33,6 @@ Page({
     console.log('onAbort', e)
   },
 
-  data: {
-    toView: 'green',
-    triggered: false,
-  },
-
   upper(e) {
     console.log(e)
   },
@@ -44,22 +50,26 @@ Page({
       scrollTop: 0
     })
   },
-
-  tap() {
-    for (let i = 0; i < order.length; ++i) {
-      if (order[i] === this.data.toView) {
+  onLoad: function (options) { 
+   const url="https://api.tianapi.com/dongman/index"; 
+    wx.request({
+      url: url,
+      data:{
+        key: '9843e93b87f121e83c9971f037c05135',
+        num: 10
+        },
+      header: {
+        'content-type': 'json' // 默认值
+      },
+      success:  (res) => {
+        console.log(res.data);
+        // 赋值
         this.setData({
-          toView: order[i + 1],
-          scrollTop: (i + 1) * 200
+          list: res.data.newslist
         })
-        break
       }
-    }
-  },
-
-  tapMove() {
-    this.setData({
-      scrollTop: this.data.scrollTop + 10
     })
-  }
+  
+}
+  
 })

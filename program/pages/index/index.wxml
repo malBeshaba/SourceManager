@@ -35,23 +35,26 @@
         </swiper>
       </view>
     
-    <view class='list'>
-      <view class='item' wx:for="{{list}}">
-        <navigator hover-class="none" url="/pages/cart.index">
-          <image class='product' src="/images/edit.png"></image>
-          <text class='text'>{{item.title}}.</text>
-        </navigator>
-        <view class='price'>
-          <text>￥{{item.price}}</text>
-          <view  bindtap='addCart' data-item="{{item}}">
-          <image style='width:20px;height:20px;' src='/images/Shopping.png'></image>
+    <block wx:for="{{list}}">
+      <!-- <view  wx:if="{{index/2==0}}"  class='item_left'  > -->
+        <navigator hover-class="none" url="{{item.url}}">
+          <view style="flex-direction:column;">
+              <image style='width:50%;height:100px;'src="{{item.picUrl}}"></image>
+               <text class='text'>{{item.title}}.</text>
           </view>
-        </view>
-      </view>
-    </view>
-      <view id="demo1" class="scroll-view-item_H demo-text-1"></view>
-      <view id="demo2"  class="scroll-view-item_H demo-text-2"></view>
-      <view id="demo3" class="scroll-view-item_H demo-text-3"></view>
+        </navigator>
+      <!-- </view>
+      <view wx:else class='item_right' >
+        <navigator hover-class="none" url="{{item.url}}">
+          <view style="flex-direction:column;" >
+              <image class='item.images'src="{{item.picUrl}}"></image>
+               <text class='text'>{{item.title}}.</text>
+          </view>
+        </navigator>
+      </view> -->
+
+    </block>
+     
   </scroll-view>
 </view>
      
