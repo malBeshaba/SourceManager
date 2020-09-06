@@ -1,9 +1,7 @@
 const order = ['demo1', 'demo2', 'demo3']
 
 Page({
-
   data: {
-
     list: [], // 数据列表
     imgUrls: null,
     indicatorDots: true,
@@ -57,9 +55,6 @@ Page({
       data:{
         key: '9843e93b87f121e83c9971f037c05135',
         num: 10
-        },
-      header: {
-        'content-type': 'json' // 默认值
       },
       success:  (res) => {
         console.log(res.data);

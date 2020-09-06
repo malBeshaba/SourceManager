@@ -13,7 +13,7 @@ page{
 .nav_left{  
   /*设置行内块级元素（没使用定位）*/  
   display: inline-block;  
-  width: 25%;  
+  width: 22%;  
   height: 100%;  
   /*主盒子设置背景色为灰色*/  
   background: #f5f5f5;  
@@ -46,7 +46,7 @@ page{
   right: 0;  
   flex: 1;  
   /*宽度75%，高度占满，并使用百分比布局*/  
-  width: 75%;  
+  width: 78%;  
   height: 1000px;  
   padding: 10px;  
   box-sizing: border-box;  
