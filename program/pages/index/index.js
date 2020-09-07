@@ -7,8 +7,6 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
-    col1: [],
-    col2: []
   },
 
   onPulling(e) {
