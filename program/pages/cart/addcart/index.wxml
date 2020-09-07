@@ -1,0 +1,113 @@
+<view class="page" data-weui-theme="{{theme}}">
+    <view class="page__bd">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+
+        <view class="weui-cells__title">基本信息</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_active">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">商品名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入名称"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_active">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">开放日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" value="{{date_start}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange1">
+                        <view class="weui-input">{{date_start}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_active">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">结束日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" value="{{date_end}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange2">
+                        <view class="weui-input">{{date_end}}</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">付费标准</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select weui-cell_select-before">
+                <view class="weui-cell__hd">
+                    <picker bindchange="bindMoneyChange" value="{{MoneyCodeIndex}}" range="{{MoneyCodes}}">
+                        <view class="weui-select">{{MoneyCodes[MoneyCodeIndex]}}</view>
+                    </picker>
+                </view>
+                <view class="weui-cell__bd weui-cell__bd_in-select-before">
+                    <input class="weui-input" placeholder="请输入价格" />
+                </view>
+            </view>
+        </view>
+       
+
+        <view class="weui-cells__title">具体描述</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_active">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入描述" style="height: 3.3em" />
+                    <view class="weui-textarea-counter">0/200</view>
+                </view>
+            </view>
+        </view>
+
+       
+        <view class="weui-cells__title">选择商品类型</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_active weui-cell_select">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">分类</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindtypesChange" value="{{typesIndex}}" range="{{ types}}">
+                        <view class="weui-select weui-select_in-select-after">{{types[typesIndex]}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_active weui-cell_select ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">具体分类</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <block wx:if="{{typesIndex==0}}">
+                        <picker bindchange="bindtypesChange2" value="{{typesIndex2}}" range="{{ground}}">
+                            <view class="weui-select weui-select_in-select-after">{{ground[typesIndex2]}}</view>
+                        </picker>
+                    </block>
+                    <block wx:elif="{{typesIndex==1}}">
+                        <picker bindchange="bindtypesChange2" value="{{typesIndex2}}" range="{{goods}}">
+                            <view class="weui-select weui-select_in-select-after">{{goods[typesIndex2]}}</view>
+                        </picker>
+                    </block>
+                    <block wx:else>
+                        <picker bindchange="bindtypesChange2" value="{{typesIndex2}}" range="{{mans}}">
+                            <view class="weui-select weui-select_in-select-after">{{mans[typesIndex2]}}</view>
+                        </picker>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+
+        <view class="weui-cells__title">上传照片</view>
+        <view>
+            <image src="/images/uoload.jpg" bindtap="chooseImage" 
+            style="width: 40%; height: 120px;" >上传照片</image> 
+        </view>
+        <view>
+            <image class= "show-image" mode="aspectFitf" src="{{src}}"></image>
+        </view>
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="showTopTips">确定</button>
+        </view>
+    </view>
+
+</view>
