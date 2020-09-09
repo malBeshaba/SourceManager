@@ -1,0 +1,9 @@
+<view class="weui-panel__bd" wx:if="{{addressInfo !=null}}">
+            <view class="weui-media-box weui-media-box_text">
+              <view class="weui-media-box__title weui-media-box__title_in-text">收货地址</view>
+              <view class="weui-media-box__desc">{{addressInfo}}</view>
+            </view>
+</view>
+<navigator url="../addaddress/index" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+    <button  class='btn'type="warn" plain="true">添加地址</button>
+</navigator>

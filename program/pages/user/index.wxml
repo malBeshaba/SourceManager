@@ -7,9 +7,15 @@
     </block>
   </view>
 
+  <view class='icon'>
+    <navigator url="./addmoney/index" hover-class="none" >
+      <text> 余额：{{money}}</text>
+    </navigator>
+  </view>
+
   <view class="weui-cells weui-cells_after-title">
 
-       <navigator url="addaddress/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+       <navigator url="address/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
 
       <view class="weui-cell__bd">收货地址</view>
 
@@ -25,7 +31,13 @@
 
     </navigator>
    
+    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
 
+        <view class="weui-cell__bd">我发布的资源</view>
+
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+
+    </navigator>
     <navigator url="/pages/cart/addcart/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
 
       <view class="weui-cell__bd">我要发布</view>

@@ -7,7 +7,14 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+
+    id:null,
+    tel:null,
+    order:null,
+    source:null,
+    address:null,
+    money:0
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,6 +23,7 @@ Page({
     })
   },
   onLoad: function () {
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -42,6 +50,31 @@ Page({
         }
       })
     }
+
+    //获取用户信息，存在全局变量中
+    const url=app.globalData.baseURL+"/userInfo"; 
+    wx.request({
+      url: url,
+      success:  (res) => {
+        console.log(res.data);
+        // 赋值
+        this.setData({
+         tel:res.data.tel,
+         order:res.data.order,
+         source:res.data.source,
+         address:res.data.address,
+         money:res.data.money
+        })
+      },
+      fail(err) {
+        console.log(err)
+      }
+    })
+    app.globalData.userdata.address=address,
+    app.globalData.userdata.money=money,
+    app.globalData.userdata.order=order,
+    app.globalData.userdata.source=source
+
   },
   getUserInfo: function(e) {
     console.log(e)

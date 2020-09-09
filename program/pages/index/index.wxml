@@ -1,12 +1,23 @@
 <view class="container">
-  <view class="search-cell">
-      <view class="weui-cell__bd">
-        <input class="input-search" placeholder=""  value="{{inputVal}}"/>
-      </view>
-      <view class="weui-cell__ft">
-        <button class="btn-search" type="primary" >搜索</button>
-      </view>
+  <!-- <view class="search-cell"> -->
+    <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                  <!-- 回车直接搜索 -->
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="请输入搜索内容"
+                     bindconfirm='Tofind'/>
+                </view>
+            </view>
+        </view>
     </view>
+
+      <!-- <view class="weui-cell__ft">
+        <button class="btn-search" type="" >搜索</button>
+      </view> -->
+   <!-- </view> -->
   <scroll-view  
       scroll-y style="width: 100%; height: 100%;"
       refresher-enabled="{{true}}"
@@ -14,30 +25,31 @@
       refresher-default-style="none"
       refresher-background="lightgreen"
       bindrefresherpulling="{{refresh.onPulling}}"
+      bindscrolltolower="lower"
     >
-      <view slot="refresher" class="refresh-container"
+      <!-- <view slot="refresher" class="refresh-container"
         style="display: block; width: 100%; height: 80px; background: #ECBDF0; display: flex; align-items: center;"
       >
         <view class="view1" style="position: absolute; color: black; text-align: center; width: 100%;">
           <text>下拉刷新</text>
         </view>
-      </view>
+      </view> -->
 
       <view class="advertisement">
         <swiper indicator-dots="true" autoplay="true" interval="2000">
             <swiper-item>
               <navigator hover-class="none" url="/pages/list/index">
-                <image src="/images/edit.png"></image>
+                <image src="/images/Shop.png"></image>
               </navigator>
             </swiper-item>
             <swiper-item>
               <navigator hover-class="none" url="/pages/list/index">
-                <image src="/images/edit.png"></image>
+                <image src="/images/Shop.png"></image>
               </navigator>
             </swiper-item>
             <swiper-item>
               <navigator hover-class="none" url="/pages/list/index">
-                <image src="/images/edit.png"></image>
+                <image src="/images/Shop.png"></image>
               </navigator>
             </swiper-item>
         </swiper>

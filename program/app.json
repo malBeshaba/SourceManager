@@ -5,7 +5,8 @@
     "pages/user/index",
     "pages/cart/addcart/index",
     "pages/cart/cartDetail/detail",
-    "pages/user/addaddress/index"
+    "pages/user/addaddress/index",
+    "pages/user/address/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

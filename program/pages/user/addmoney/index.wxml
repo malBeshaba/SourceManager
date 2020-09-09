@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="page-section">
+    <view class="weui-cells__title">充值</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input" bindtap="getMoney">
+        <input class="weui-input" type="number" />
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap="sendMoney">
+    <button type="default" plain="true">确定</button>
+   </view>
