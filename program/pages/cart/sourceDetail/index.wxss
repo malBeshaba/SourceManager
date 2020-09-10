@@ -1,0 +1,129 @@
+.container {
+  background-color: #eeeeee;
+}
+
+.container image {
+  width: 100%;
+  height: 400px;
+}
+
+.container .label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 69px;
+  background-color: white;
+}
+
+.container .label .orderL {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.container .label .orderL .title {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 12px;
+}
+
+.orderL .set_order {
+  border: tomato solid;
+  margin-left: 200px;
+  margin-top: 10px;
+  border-width: 2px;
+  color: tomato;
+  width: 60px;
+  height: 20px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+  /* border-radius: 50%; */
+}
+
+.container .label .describe {
+  width: 66%;
+  font-size: 12px;
+  font-weight: 200;
+  color: lightgray;
+  margin-left: 12px;
+  word-break: break-all;
+  margin-top: -10px;
+  margin-bottom: 10rpx;
+}
+
+.container .label .this {
+  display: flex;
+  flex-direction: row;
+  margin-left: 12px;
+}
+
+.container .label .this .price {
+  font-size: 14px;
+  color: red;
+}
+
+.container .label .this .hot {
+  float: right;
+  margin-left: 68%;
+  margin-bottom: 10px;
+  flex-direction: row;
+}
+
+.container .label .this .hot image {
+  width: 20px;
+  height: 20px;
+}
+.container .label .this .hot text {
+  font-size: 14px;
+  color: lightgray;
+}
+
+.command {
+  background-color: white;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.command .title {
+  margin-left: 12px;
+  margin-top: 8px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.command_list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.command_list .user_name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.command_list .content {
+  font-size: 12px;
+  font-size: 300;
+  margin-left: 12px;
+  word-break: break-all;
+}
+
+.div-line{
+  background: #E0E3DA;
+  width: 100%;
+  height: 3rpx;
+}
+
+.bottom-tip {
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #707070;
+  font-size: 12px;
+}

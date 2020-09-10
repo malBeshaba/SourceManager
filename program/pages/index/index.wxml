@@ -60,7 +60,7 @@
       <text>--------热度前十的资源推荐---------</text>
     </view>
     <view class="item"  wx:for="{{list}}">
-         <navigator hover-class="none" url="{{item.url}}">
+         <navigator hover-class="none" url="/pages/cart/sourceDetail/index">
           <view style="flex-direction:column;" display="flex">
               <image style='width:100%;height:100px;'src="{{item.picUrl}}"></image>
           </view>
