@@ -1,3 +1,4 @@
+
 .container{
   width: 100%;
   height: 100vh;
@@ -20,4 +21,10 @@
 .title .en{
   font-size: 12px;
 }
+.weui-label {
+  margin-left: 10px;
+}
 
+.weui-cell__hd {
+  margin-left: 10px;
+}

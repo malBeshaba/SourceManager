@@ -4,7 +4,7 @@ Page({
   data: {
     source_type1: -1,
     source_type2: -1,
-    list: null
+    list: [1,2,3,4,5]
   },
   onLoad: function(e) {
     // 获取上一个页面传值 source_type1(id) 、 source_type2(index)

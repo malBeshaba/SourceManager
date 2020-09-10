@@ -1,3 +1,18 @@
 <view class="container">
-  
+  <view class="items">
+  <block wx:for="{{list}}">
+    <navigator url="">
+      <view class="item" style="flex-direction">
+        <image src="/images/utry.jpg"></image>
+        <view class="label" style="flex-direction">
+          <text>羽毛球场一</text>
+          <view class="hot" style="flex-direction">
+            <image src="/images/fire.png"></image>
+            <text>121</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>
 </view>
