@@ -22,6 +22,10 @@ Page({
       url: '../logs/logs'
     })
   },
+  // onShow() { 
+  //   this.onLoad();
+  //   console.log("刷新")
+  // },
   onLoad: function () {
 
     if (app.globalData.userInfo) {
@@ -83,5 +87,11 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  onShow: function () {
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+    //当前页的options，啥意思呢，就是你可能某个函数需要刷新，但是他的参数正好是传过来的参数
+    console.log(currPage.options); 
+    }
 })
