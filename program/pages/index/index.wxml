@@ -56,7 +56,9 @@
       </view>
 
   
-
+    <view class="te">
+      <text>--------热度前十的资源推荐---------</text>
+    </view>
     <view class="item"  wx:for="{{list}}">
          <navigator hover-class="none" url="{{item.url}}">
           <view style="flex-direction:column;" display="flex">
@@ -64,6 +66,9 @@
           </view>
           <view class="title">
             <text class='text'>{{item.title}}</text>
+           </view>
+           <view class="title">
+            <text class='text'>价格：</text>
            </view>
         </navigator>
     </view>

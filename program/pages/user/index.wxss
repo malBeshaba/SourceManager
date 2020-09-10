@@ -25,6 +25,7 @@
   /* border-bottom:1px solid #EDEDED;  */
   display: flex;
   flex-direction: column;
+  margin-left: 20px;
 }
 .icon text{
   display: block;
