@@ -1,0 +1,34 @@
+<view class="container">
+  <image src="{{imageUrl}}"></image>
+  <view class="label" style="flex-direction">
+    <view class="orderL">
+      <text class="title">{{name}}</text>
+      <navigator url="">
+        <view class="set_order">
+          下订单
+        </view>
+      </navigator>
+    </view>
+    <view class="describe">{{describe}}</view>
+    <view class="this">
+      <text class="price">¥{{price}}</text>
+      <view class="hot" style="flex-direction">
+        <image src="/images/fire.png"></image>
+        <text>{{total_use_num}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="command">
+    <view class="title">全部评论</view>
+    <block wx:for="{{command}}">
+      <view class="command_list">
+        <text class="user_name">{{item.user_name}}</text>
+        <text class="content">{{item.content}}</text>
+      </view>
+      <view class="div-line"></view>
+    </block>
+  </view>
+  <view class="bottom-tip">
+    <text>到底了，再往上逛逛吧~</text>
+  </view>
+</view>
