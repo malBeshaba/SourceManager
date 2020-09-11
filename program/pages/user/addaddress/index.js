@@ -9,6 +9,7 @@ Page({
         this.setData({
           addressInfo: res
         })
+        console.log( this.data.addressInfo)
       },
       fail(err) {
         console.log(err)
@@ -26,7 +27,7 @@ Page({
       url: app.globalData.baseURL+"/userInfo/address",
       method:'POST',
       data:{
-        address: addressInfo
+        address: this.data.addressInfo
       },
       success:  (res) => {
         console.log("success");

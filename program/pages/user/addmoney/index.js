@@ -26,7 +26,7 @@ Page({
     //   url: app.globalData.baseURL+"/userInfo/money",
     //   method:'POST',
     //   data:{
-    //     money:money
+    //     money:this.data.money
     //   },
     //   success:  (res) => {
     //     console.log("success");

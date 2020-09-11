@@ -12,6 +12,15 @@
           </view>
         </view>
 
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">邮编</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{ addressInfo.postalCode }}
+          </view>
+        </view>
+
         <view class="weui-cell weui-cell_input region">
           <view class="weui-cell__hd">
             <view class="weui-label">地区</view>
@@ -30,6 +39,15 @@
           </view>
           <view class="weui-cell__bd">
             {{ addressInfo.detailInfo }}
+          </view>
+        </view>
+
+          <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">国家码</view>
+          </view>
+          <view class="weui-cell__bd">
+            {{ addressInfo.nationalCode }}
           </view>
         </view>
 
