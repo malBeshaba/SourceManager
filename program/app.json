@@ -6,7 +6,10 @@
     "pages/cart/addcart/index",
     "pages/cart/cartDetail/detail",
     "pages/user/addaddress/index",
-    "pages/user/address/index"
+    "pages/user/address/index",
+    "pages/cart/orderList/orderList",
+    "pages/user/mySource/mySource",
+    "pages/user/myOrder/myOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",
