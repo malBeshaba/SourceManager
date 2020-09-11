@@ -1,5 +1,6 @@
 Page({
   data: {
+    id: 0,
     imageUrl: '/images/utry.jpg',
     name: 'null',
     type: 'null',
@@ -19,6 +20,7 @@ Page({
   },
   onLoad: function(e) {
     var id = e.id
+    
     wx.request({
       url: 'https://localhost:8080/source',
       data: {

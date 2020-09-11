@@ -1,0 +1,18 @@
+<!--pages/cart/orderList/orderList.wxml-->
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="source_info">
+    <image src="{{source.image}}"></image>
+    <text>{{source.title}}</text>
+  </view>
+  <view class="div-line"></view>
+  <view class="section section_gap">
+    <view class="section__title">请选择使用时间</view>
+    <checkbox-group bindchange="checkboxChange">
+    <label class="checkbox" wx:for-items="{{date}}">
+        <checkbox value="{{item.start}}#{{item.end}}" />{{item.start}}——{{item.end}}
+    </label>
+</checkbox-group>
+  </view>
+  <button formType="submit">Submit</button>
+</form>

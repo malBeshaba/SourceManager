@@ -3,7 +3,7 @@
   <view class="label" style="flex-direction">
     <view class="orderL">
       <text class="title">{{name}}</text>
-      <navigator url="">
+      <navigator url="/pages/cart/orderList/orderList?id={{id}}&image={{imageUrl}}&name={{name}}&price={{price}}">
         <view class="set_order">
           下订单
         </view>
