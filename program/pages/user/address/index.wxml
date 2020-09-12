@@ -1,9 +1,9 @@
-<view class="weui-panel__bd" >
+<view class="weui-panel__bd" wx:if="{{addressInfo !=null}}" >
   <!-- wx:if="{{addressInfo !=null}}" -->
             <view class="weui-media-box weui-media-box_text">
                  <view class="page-section-spacing">
-                     <scroll-view class="box1" scroll-x="true" bindscroll="scroll" style="width: 100%">
-                            <view class="left">hh</view>
+                     <scroll-view class="box1" scroll-x="true"  style="width: 100%">
+                            <view class="left"> {{addressInfo}}  </view>
                             <view class="right" >
                                   <text class="text" bindtap="delete">删除</text>
                             </view>

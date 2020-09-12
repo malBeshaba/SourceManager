@@ -2,8 +2,6 @@ var app = getApp()
 Page({
   data: {
     addressInfo: null,
-    touchStart: null,
-    moveSpace: 0 
   },
   onShow: function () {
     this.setData({

@@ -30,6 +30,15 @@ Page({
       src:""
   },
   showTopTips: function(){
+    let pages = getCurrentPages();
+    //获取所需页面
+    let prevPage = pages[pages.length -2];//上一页
+    // prevPage.setData({
+    //   money:money //你需要传过去的数据
+    // });
+    wx.navigateBack({//返回
+      delta: 1
+    })
       wx.request({
         url: app.globalData.baseURL+"/source",
         method:'POST',
