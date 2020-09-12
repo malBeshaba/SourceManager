@@ -5,14 +5,38 @@ Page({
    * Page initial data
    */
   data: {
-
+    order_list:[]
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    wx.request({
+      url: 'https://localhost:8080/order',
+      data: {
+        user_id: 0
+      },
+      responseType: JSON,
+      success: (res) => {
+        var list = res.data.data.list
+      },
+      fail: (err) => {
+        console.log(err)
+      }
+    })
+  },
+  loadSource: function (id) {
+    wx.request({
+      url: 'https://localhost:8080/source',
+      data: {
+        id: id
+      },
+      responseType:JSON,
+      success: (res) => {
+        return res.data.data
+      }
+    })
   },
 
   /**

@@ -9,7 +9,7 @@ Page({
       this.setData({
           money: e.detail.value
       })
-      console.log(money);
+      console.log(this.data.money);
   },
   sendMoney:function (e) {
     console.log( '完成充值');
