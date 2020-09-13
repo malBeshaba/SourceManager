@@ -16,14 +16,14 @@ public class Order {
     @Column(name = "owner")
     private String owner;
 
-    @Column(name = "subscriber")
-    private String subscriber;
+    @Column(name = "subscriber_id")
+    private Integer subscriber_id;
 
     @Column(name = "source_id")
     private Integer source_id;
 
     @Column(name = "statement")
-    private boolean statement;
+    private int statement;
 
     @Column(name = "sum_price")
     private double sum_price;
