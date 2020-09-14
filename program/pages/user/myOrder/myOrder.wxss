@@ -1,0 +1,8 @@
+/* pages/user/myOrder.wxss */
+.orders {
+  background-color: #eeeeee;
+  height: 100%;
+}
+.order {
+  
+}

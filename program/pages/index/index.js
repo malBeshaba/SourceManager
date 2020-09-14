@@ -55,7 +55,7 @@ Page({
     // wx.request({
       // url: app.globalData.baseURL+"/search",
       // data:{
-      //   name:name
+      //   name:this.data.name
       // },
     //     console.log(res.data);
     //     // 赋值

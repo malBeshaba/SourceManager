@@ -1,0 +1,18 @@
+<!--pages/user/myOrder.wxml-->
+<!-- <text>pages/user/myOrder.wxml</text> -->
+<view class="orders">
+  <block wx:for="{{order_list}}">
+    <view class="order">
+      <image src="/images/utry.jpg"></image>
+      <view class="order_info">
+        <text class="title">{{loadSource(item.source_id)}}</text>
+        <text class="time">
+          订单持续时间{{item.start_time}}-{{item.end_time}}
+        </text>
+        <text class="type">
+          订单状态:{{item.type}}
+        </text>
+      </view>
+    </view>
+  </block>
+</view>

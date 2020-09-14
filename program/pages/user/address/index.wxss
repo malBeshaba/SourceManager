@@ -3,3 +3,28 @@
   bottom: 0;
   width: 90%;
 }
+.box1{
+  height: 150rpx;
+  width: 100%;
+  position: relative;
+  transition: all 0.5s;
+  background-color:#eeeeee
+}
+.left{
+  height: 100%;
+  width: 100%;
+}
+.right{
+  height:100%;
+  width: 200rpx;
+  position: absolute;
+  background-color:red;
+  top: 0;
+  right: -200rpx;
+}
+.text{
+  font-size:60rpx;
+  height:50rpx;
+    display:flex;
+    justify-content:center;
+}

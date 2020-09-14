@@ -32,6 +32,26 @@
                     </picker>
                 </view>
             </view>
+            <view class="weui-cell weui-cell_active">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">开放时间</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="time" value="{{time_start}}" bindchange="bindTimeChange1">
+                        <view class="weui-input">{{time_start}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_active">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">结束时间</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="time" value="{{time_end}}" bindchange="bindTimeChange2">
+                        <view class="weui-input">{{time_end}}</view>
+                    </picker>
+                </view>
+            </view>
         </view>
 
         <view class="weui-cells__title">付费标准</view>
@@ -43,7 +63,7 @@
                     </picker>
                 </view>
                 <view class="weui-cell__bd weui-cell__bd_in-select-before">
-                    <input class="weui-input" placeholder="请输入价格" />
+                    <input class="weui-input" placeholder="请输入价格" bindinput="bindPrice"/>
                 </view>
             </view>
         </view>
@@ -53,7 +73,7 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_active">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="请输入描述" style="height: 3.3em" />
+                    <textarea class="weui-textarea" placeholder="请输入描述" style="height: 3.3em" bindinput="bindDescribe"/>
                     <view class="weui-textarea-counter">0/200</view>
                 </view>
             </view>
@@ -100,7 +120,7 @@
         <view class="weui-cells__title">上传照片</view>
         <view>
             <image src="/images/uoload.jpg" bindtap="chooseImage" 
-            style="width: 40%; height: 120px;" >上传照片</image> 
+            style="width: 40%; height: 150px;" >上传照片</image> 
         </view>
         <view>
             <image class= "show-image" mode="aspectFitf" src="{{src}}"></image>

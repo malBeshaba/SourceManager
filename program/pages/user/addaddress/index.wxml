@@ -1,61 +1,45 @@
-
-<view class="container">
-  <form>
-    <view class="page-section">
-      <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">收货人姓名</view>
-          </view>
-          <view class="weui-cell__bd">
-            {{ addressInfo.userName }}
-          </view>
-        </view>
-
-        <view class="weui-cell weui-cell_input region">
-          <view class="weui-cell__hd">
-            <view class="weui-label">地区</view>
-          </view>
-          <view class="weui-cell__bd">
-            {{ addressInfo.provinceName }}
-            {{ addressInfo.cityName }}
-            {{ addressInfo.countyName }}
-          </view>
-        </view>
-
-
-        <view class="weui-cell weui-cell_input detail">
-          <view class="weui-cell__hd">
-            <view class="weui-label">收货地址</view>
-          </view>
-          <view class="weui-cell__bd">
-            {{ addressInfo.detailInfo }}
-          </view>
-        </view>
-
-        <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-            <view class="weui-label">手机号码</view>
-          </view>
-          <view class="weui-cell__bd">
-            {{ addressInfo.telNumber }}
-          </view>
-        </view>
-
-      </view>
-    </view>
-  </form>
-  
-  <view class="page-body">
-    <view class="btn-area">
-    <button type="primary" bindtap="chooseAddress">获取收货地址</button>
-    </view>
-  </view>
-
-    
-  <view class="page-body">
-    <view class="btn-area">
-    <button type="default" bindtap="addAddress">确定</button>
-    </view>
-  </view>
+<!-- 信息部分开始 -->
+<form bindsubmit="formSubmit" report-submit="true">
+<view class = "info">
+<!-- 姓名部分 -->
+<view class = "item">
+<text>用户姓名</text>
+<view class = "right">
+<input type="text" name = "name"placeholder="{{name}}" focus="{{focus}}"/>
 </view>
+</view>
+
+<!-- 电话部分 -->
+<view class = "item">
+<text>联系电话</text>
+<view class = "right">
+<input name="tel" type="number" placeholder="{{tel}}"  focus="{{focus}}"/>
+</view>
+</view>
+
+
+
+<!-- 收货地址部分 -->
+<view class = "item">
+<text>所在区域</text>
+<view class = "right">
+  <input name="area" type="text" placeholder="{{area}}"  focus="{{focus}}"/>
+</view>
+</view>
+
+<!-- 详细地址部分 -->
+<view class = "item">
+<text>详细地址</text>
+<view class = "right">
+<input name="door" type="text" placeholder="{{door}}"  focus="{{focus}}"/>
+</view>
+</view>
+
+
+
+
+
+</view>
+<!-- 信息部分结束 -->
+<button class = "save" formType="submit" >保存</button>
+</form>

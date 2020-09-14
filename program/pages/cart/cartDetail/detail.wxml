@@ -1,7 +1,7 @@
 <view class="container">
   <view class="items">
   <block wx:for="{{list}}">
-    <navigator url="">
+    <navigator url="/pages/cart/sourceDetail/index">
       <view class="item" style="flex-direction">
         <image src="/images/utry.jpg"></image>
         <view class="label" style="flex-direction">

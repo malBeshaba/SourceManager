@@ -9,7 +9,7 @@ Page({
       this.setData({
           money: e.detail.value
       })
-      console.log(money);
+      console.log(this.data.money);
   },
   sendMoney:function (e) {
     console.log( '完成充值');
@@ -26,7 +26,7 @@ Page({
     //   url: app.globalData.baseURL+"/userInfo/money",
     //   method:'POST',
     //   data:{
-    //     money:money
+    //     money:this.data.money
     //   },
     //   success:  (res) => {
     //     console.log("success");
