@@ -70,18 +70,18 @@ Page({
     console.log("开始搜索")
   },
   onLoad: function (options) { 
-   let url="https://api.tianapi.com/dongman/index"; 
+  
     wx.request({
-      url: url,
-      data:{
-        key: '9843e93b87f121e83c9971f037c05135',
-        num: 10
-      },
+      url: app.globalData.baseURL+"/source/HomePage",
+      // data:{
+      //   key: '9843e93b87f121e83c9971f037c05135',
+      //   //num: 10
+      // },
       success:  (res) => {
         console.log(res.data);
         // 赋值
         this.setData({
-          list: res.data.newslist
+          list: res.data.
         })
       },
       fail(err) {
