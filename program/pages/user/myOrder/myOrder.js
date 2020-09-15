@@ -5,7 +5,8 @@ Page({
    * Page initial data
    */
   data: {
-    order_list:[]
+    order_list:[1,1,1,1,1,1],
+    is_success: true
   },
 
   /**
@@ -20,6 +21,10 @@ Page({
       responseType: JSON,
       success: (res) => {
         var list = res.data.data.list
+        this.setData({
+          order_list: list,
+          is_success: true
+        })
       },
       fail: (err) => {
         console.log(err)
