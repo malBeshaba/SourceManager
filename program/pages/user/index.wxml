@@ -15,7 +15,7 @@
 
   <view class="weui-cells weui-cells_after-title">
 
-       <navigator url="address/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+       <navigator url="/pages/user/addaddress/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
 
       <view class="weui-cell__bd">收货地址</view>
 
