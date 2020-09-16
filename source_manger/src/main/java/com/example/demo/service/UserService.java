@@ -57,7 +57,7 @@ public class UserService {
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("code",0);
         jsonObject.put("msg","success");
-        String bigAddress=user.getArea()+user.getAddress();
+        String bigAddress=user.getArea()+"#"+user.getAddress();
         Map map=new HashMap();
         map.put("address",bigAddress);
         map.put("tel", user.getPhone_number());
