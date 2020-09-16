@@ -25,6 +25,9 @@ public class User {
     @Column(name = "area")
     private String area;
 
+    @Column(name = "address")
+    private String address;
+
     public String getArea() {
         return area;
     }
@@ -33,14 +36,7 @@ public class User {
         this.area = area;
     }
 
-    @Column(name = "address")
-    private String address;
 
-    @Column(name = "order_id")
-    private Integer order_id;
-
-    @Column(name = "source_id")
-    private Integer source_id;
 
     public Integer getId() {
         return id;
