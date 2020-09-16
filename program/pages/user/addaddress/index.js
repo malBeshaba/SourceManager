@@ -2,7 +2,7 @@ var index = 0;
 const app = getApp();
 Page({
   data:{
-    name:"请填写您的姓名",
+    name: app.globalData.userInfo.nickName,
     tel:"请填写您的联系方式",
     addreValue:0,
     door:"街道门牌信息",
@@ -45,6 +45,7 @@ Page({
     }
     
   },
+  
   submit: function(e) {
     var that = this.data;
     wx.request({
@@ -58,5 +59,21 @@ Page({
         console.log('fail');
       }
     })
-  }
+    },
+    onLoad: function (e) {
+      wx.request({
+        url: app.globalData.baseURL + '/user/address',
+        data: {
+          username: app.globalData.userInfo.nickName
+        },
+        success: res => {
+          var addr = res.data.data.address.split('#');
+          this.setData({
+            tel: res.data.data.tel,
+            area: addr[0],
+            door: addr[1]
+          })
+        }
+      })
+    }
   })
