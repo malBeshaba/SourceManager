@@ -33,4 +33,7 @@ public interface SourceRepository extends CrudRepository<Source,Integer> {
 
 //    @Query(value = "INSERT INTO sourcemanagerdb.source VALUES (12,'Billwww',1,2,'Bill',null,null,0.1,'a','a',1,1,true,1)",nativeQuery = true)
 //    void save();
+
+    @Query(value = "select * from sourcemanagerdb.source where sourcemanagerdb.source.id = :source_id",nativeQuery = true)
+    List<Source> findByID(@Param("source_id") int source_id);
 }
