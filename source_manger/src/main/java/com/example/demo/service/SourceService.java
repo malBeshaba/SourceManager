@@ -39,6 +39,10 @@ public class SourceService {
         return getJsonResult(sourceRepository.findByName(name),"success");
     }
 
+    public JSONObject findById(int id) {
+        return getJsonResult(sourceRepository.findById(id), "success");
+    }
+
     public JSONObject findHomepage() {
         return getJsonResult(sourceRepository.findHomepage(),"success");
     }
@@ -57,9 +61,24 @@ public class SourceService {
 //        return jsonObject;
 //    }
 
-
-    public JSONObject addSource(String name, int type1, int type2, String publisher, String start_time, String end_time, double unit_price, String comments, String describe, int concurrent_usage, int historical_usage, boolean is_available) {
-        Source source=new Source();
-        return null;
+    public JSONObject addSource(String name, int type1, int type2, String publisher, String start_time, String end_time, double unit_price, String comments, String describe, int concurrent_usage, int historical_usage, int is_available) {
+//        Source source=new Source();
+//        source.setName(name);
+//        source.setConcurrent_usage(concurrent_usage);
+//        source.setDescribe(describe);
+//        source.setEnd_time(end_time);
+//        source.setHistorical_usage(historical_usage);
+//        source.setIs_available(is_available);
+//        source.setPublisher(publisher);
+//        source.setStart_time(start_time);
+//        source.setType1(type1);
+//        source.setType2(type2);
+//        source.setUnit_price(unit_price);
+//        source.setComments(comments);
+        sourceRepository.insertSource(name,type1,type2,publisher,start_time,end_time,unit_price,comments,describe,concurrent_usage,historical_usage, is_available);
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("code",0);
+        jsonObject.put("msg","add successfully");
+        return jsonObject;
     }
 }

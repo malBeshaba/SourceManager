@@ -37,7 +37,8 @@ Page({
         id:e.id,
         image:e.image,
         title:e.name
-      }
+      },
+      price: e.price
     })
   },
   checkboxChange: function(e) {

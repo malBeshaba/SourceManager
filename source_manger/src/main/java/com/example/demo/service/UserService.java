@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserService {
@@ -56,7 +58,10 @@ public class UserService {
         jsonObject.put("code",0);
         jsonObject.put("msg","success");
         String bigAddress=user.getArea()+user.getAddress();
-        jsonObject.put("data",bigAddress);
+        Map map=new HashMap();
+        map.put("address",bigAddress);
+        map.put("tel", user.getPhone_number());
+        jsonObject.put("data",map);
         return jsonObject;
     }
 

@@ -44,6 +44,10 @@ public class SourceController {
         return sourceService.findByName(name);
     }
 
+    @GetMapping("getById")
+    @ResponseBody
+    public JSONObject findById(@RequestParam("id") int id) {return  sourceService.findById(id);}
+
     /**
      * 首页 显示历史使用次数前十的资源
      */
@@ -61,7 +65,7 @@ public class SourceController {
     public JSONObject addSource(@RequestParam("name")String name,@RequestParam("type1")int type1,@RequestParam("type2")int type2,@RequestParam("publisher")String publisher,
                                 @RequestParam("start_time")String start_time,@RequestParam("end_time")String end_time,@RequestParam("unit_price")double unit_price,
                                 @RequestParam("comments")String comments,@RequestParam("describe")String describe,@RequestParam("concurrent_usage")int concurrent_usage,
-                                @RequestParam("historical_usage")int historical_usage,@RequestParam("is_available")boolean is_available){
+                                @RequestParam("historical_usage")int historical_usage,@RequestParam("is_available")int is_available){
         return sourceService.addSource(name,type1,type2,publisher,start_time,end_time,unit_price,comments,describe,concurrent_usage,historical_usage,is_available);
     }
 

@@ -51,9 +51,11 @@ Page({
       scrollTop: 0
     })
   },
-  Tofind(){
-    
+  Tofind: function(e) {
     console.log("开始搜索")
+    wx.navigateTo({
+      url: '/pages/cart/cartDetail/detail?name='+e.detail.value,
+    })
   },
   onLoad: function (options) { 
     wx.request({

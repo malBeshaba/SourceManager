@@ -41,5 +41,5 @@
 
 </view>
 <!-- 信息部分结束 -->
-<button class = "save" formType="submit" >保存</button>
+<button class = "save" formType="submit" bindtap="submit" >保存</button>
 </form>

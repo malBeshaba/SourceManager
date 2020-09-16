@@ -1,14 +1,14 @@
 <view class="container">
   <view class="items">
   <block wx:for="{{list}}">
-    <navigator url="/pages/cart/sourceDetail/index">
+    <navigator url="/pages/cart/sourceDetail/index?id={{item.id}}">
       <view class="item" style="flex-direction">
         <image src="/images/utry.jpg"></image>
         <view class="label" style="flex-direction">
-          <text>羽毛球场一</text>
+          <text>{{item.name}}</text>
           <view class="hot" style="flex-direction">
             <image src="/images/fire.png"></image>
-            <text>121</text>
+            <text>{{item.historical_usage}}</text>
           </view>
         </view>
       </view>

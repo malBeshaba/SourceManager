@@ -26,24 +26,22 @@ Page({
   },
   onLoad: function(e) {
     var id = e.id
-    
     wx.request({
-      url: 'https://localhost:8080/source',
+      url: 'http://localhost:8080/source/getById',
       data: {
         id: id
       },
-      responseType:JSON,
       success:  (res) => {
         console.log(res.data);
         // 赋值
-        var data = res.data.data
+        var data = res.data.data[0]
         this.setData({
           imageUrl: data.imageUrl,
           name: data.name,
           type: data.type,
           describe: data.describe,
-          price: data.price,
-          command: data.command.split('//')
+          price: data.unit_price,
+          command: data.commants
         })
       },
     })

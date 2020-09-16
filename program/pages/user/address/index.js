@@ -1,4 +1,4 @@
-var app = getApp()
+const app = getApp()
 Page({
   data: {
     addressInfo: null,
@@ -7,6 +7,17 @@ Page({
     this.setData({
       addressInfo: app.globalData.userdata.address
     });
+    },
+    onLoad: function(e) {
+      wx.request({
+        url: app.globalData.baseURL + '/user/address',
+        data: {
+          username: app.globalData.userInfo.nickName
+        },
+        success: res => {
+          // this.setData
+        }
+      })
     },
   delete: function (e){
         wx.request({

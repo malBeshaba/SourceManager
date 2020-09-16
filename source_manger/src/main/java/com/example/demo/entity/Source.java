@@ -48,7 +48,7 @@ public class Source {
     private int historical_usage;
 
     @Column(name = "is_available")
-    private boolean is_available;
+    private int is_available;
 
     public int getId() {
         return id;
@@ -146,11 +146,11 @@ public class Source {
         this.historical_usage = historical_usage;
     }
 
-    public boolean isIs_available() {
+    public int isIs_available() {
         return is_available;
     }
 
-    public void setIs_available(boolean is_available) {
+    public void setIs_available(int is_available) {
         this.is_available = is_available;
     }
 }
