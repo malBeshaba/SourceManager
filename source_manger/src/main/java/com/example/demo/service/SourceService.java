@@ -78,6 +78,8 @@ public class SourceService {
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("code",0);
         jsonObject.put("msg","add successfully");
+        int id=sourceRepository.findByName(name).get(0).getId();
+        jsonObject.put("data", id);
         return jsonObject;
     }
 }

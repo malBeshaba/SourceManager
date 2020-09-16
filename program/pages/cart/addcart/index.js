@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
   data: {
+      source_id: null,
       name:null,
       price:null,
       describe:null,
@@ -8,8 +9,6 @@ Page({
       time_start: "",
       date_end: "",
       time_end: "",
-
-      MoneyCodes: ["每天", "每小时", "每月"],
       MoneyCodeIndex: 0,
      // 每天-0，每小时-1，每月-2
 
@@ -39,35 +38,28 @@ Page({
     wx.navigateBack({//返回
       delta: 1
     })
+    console.log(this.data);
+    var data = this.data;
       wx.request({
-        url: app.globalData.baseURL+"/source",
+        url: 'http://localhost:8080/source/add?name='+data.name+'&type1='+data.typesIndex+'&type2='+data.typesIndex2+'&publisher='+app.globalData.userInfo.nickName+'&start_time='+data.date_start+data.time_start+'&end_time='+data.date_end+data.time_end+'&unit_price='+data.price+'&comments=1&describe=11&concurrent_usage=1&historical_usage=1&is_available=1',
         method:'POST',
-        data:{
-          name:this.data.name,
-          price:this.data.price,
-          describe:this.data.describe,
-          date_start:this.data.date_start ,
-          time_start: this.data.time_start,
-          date_end: this.data.date_end,
-          time_end: this.data.time_end,
-          MoneyCodeIndex:  this.data.MoneyCodeIndex,
-          typesIndex:this.data.typesIndex,
-          typesIndex2:this.data.typesIndex2
-        },
         success:  (res) => {
           console.log(res.data);
           // 赋值
-          this.setData({
-            list: res.data.newslist
-          })
+          
+          this.upload(res.data.data);
         },
         fail(err) {
           console.log(err)
         }
       })
-    
+   
   },
-
+  bindName: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
   bindPrice: function (e) {
     this.setData({
        price: e.detail.value
@@ -131,13 +123,19 @@ bindTimeChange2: function (e) {
       path: '/pages/cart/addcart'
     }
   },
-  upload:function (page, path) {
+  upload:function (id) {
     wx.uploadFile({
-     url: "",
-     filePath: path[0],
+     url: app.globalData.baseURL+'/sourceimage/upload',
+     filePath: this.data.src,
      name: 'file',
+    //  formData: {
+    //    source_id: this.data.source_id
+    //  },
+    header:{
+      source_id: id
+    },
      success: function (res) {
-     console.log(res);
+     console.log(res.data);
      }
     })
   },
@@ -148,11 +146,9 @@ bindTimeChange2: function (e) {
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
         success: res => {
-          // success
-          console.log(res)
-            this.setData({
-              src:res.tempFilePaths
-          })
+         this.setData({
+           src: res.tempFilePaths[0]
+         })
           // upload(that, src);
         },
 

@@ -3,9 +3,12 @@ package com.example.demo.service;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.entity.SourceImage;
 import com.example.demo.repository.SourceImageRepository;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.*;
 import java.sql.*;
@@ -101,4 +104,25 @@ public class SourceImageService {
         return buff;
     }
 
+    public boolean insert(int source_id, MultipartFile file) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = this.connect();
+            String sql = "insert into sourcemanagerdb.source_image(source_id, image) values(?,?)";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, source_id);
+            InputStream in = file.getInputStream();
+            stmt.setBinaryStream(2, in);
+            int result = stmt.executeUpdate();
+            System.out.println("success: insert to sourceimage. line:"+result);
+            return true;
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            this.close(rs, stmt, conn);
+        }
+        return false;
+    }
 }
