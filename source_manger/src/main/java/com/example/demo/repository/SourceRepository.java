@@ -13,6 +13,11 @@ public interface SourceRepository extends CrudRepository<Source,Integer> {
 
     List<Source> findByName(String name);
 
-    @Query(value = "select * from sourcemanagerdb.source order by sourcemanagerdb.source.historicalusage desc limit 0,10",nativeQuery = true)
+    @Query(value = "select * from sourcemanagerdb.source order by historical_usage desc limit 0,10",nativeQuery = true)
     List<Source> findHomepage();
+
+    List<Source> findByPublisher(String publisher);
+
+//    @Query(value = "INSERT INTO sourcemanagerdb.source VALUES (12,'Billwww',1,2,'Bill',null,null,0.1,'a','a',1,1,true,1)",nativeQuery = true)
+//    void save();
 }
