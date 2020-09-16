@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 69px;
+  height: 72px;
   background-color: white;
 }
 
@@ -27,19 +27,21 @@
   margin-left: 12px;
 }
 
-.orderL .set_order {
+.orderL button {
   border: tomato solid;
   margin-left: 200px;
   margin-top: 10px;
   border-width: 2px;
   color: tomato;
-  width: 60px;
-  height: 20px;
+  width: 70px;
+  height: 30px;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  font-size: 30rpx;
   text-align: center;
+  /* padding-bottom: 30px; */
   /* border-radius: 50%; */
 }
 
@@ -68,7 +70,7 @@
 .container .label .this .hot {
   float: right;
   margin-left: 68%;
-  margin-bottom: 10px;
+  padding-bottom: 13px;
   flex-direction: row;
 }
 

@@ -1,0 +1,74 @@
+/* pages/user/approval/approval.wxss */
+.orders {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #eeeeee;
+}
+
+.order {
+  background-color: white;
+  width: 100%;
+  height: 20%;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: solid white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.order image {
+  width: 96px;
+  height: 96px;
+  padding-left: 10px;
+}
+
+.order .info {
+  display: flex;
+  flex-direction: column;
+
+  width: 80%;
+  margin-left: 10px;
+}
+.info text {
+  text-align: left;
+  font-size: medium;
+}
+.approval {
+  display: flex;
+  flex-direction: row;
+}
+.approval .t {
+  text-align: left;
+  font-size: medium;
+}
+.approval .er {
+  margin-left: 2px;
+  color: cornflowerblue;
+}
+
+.btn {
+  margin-left: 200px;
+}
+
+.refuse {
+  background-color: crimson;
+  color: white;
+  width: 50px;
+  height: 20px;
+}
+.allow {
+  background-color: limegreen;
+  color: white;
+  width: 50px;
+  height: 20px;
+}
+

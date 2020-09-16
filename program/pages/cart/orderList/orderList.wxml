@@ -3,7 +3,13 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="source_info">
     <image src="{{source.image}}"></image>
-    <text>{{source.title}}</text>
+    <view class="info">
+      <text class="title">{{source.title}}</text>
+      <view class="price">
+        <text class="t">单价：¥</text>
+        <text class="money">{{price}}</text>
+      </view>
+    </view>
   </view>
   <view class="div-line"></view>
   <view class="section section_gap">

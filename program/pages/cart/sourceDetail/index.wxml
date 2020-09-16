@@ -3,11 +3,9 @@
   <view class="label" style="flex-direction">
     <view class="orderL">
       <text class="title">{{name}}</text>
-      <navigator url="/pages/cart/orderList/orderList?id={{id}}&image={{imageUrl}}&name={{name}}&price={{price}}">
-        <view class="set_order">
+        <button bindtap="set_order">
           下订单
-        </view>
-      </navigator>
+        </button>
     </view>
     <view class="describe">{{describe}}</view>
     <view class="this">

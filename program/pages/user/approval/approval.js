@@ -1,45 +1,42 @@
-// pages/user/myOrder.js
+// pages/user/approval/approval.js
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    order_list:[1,1,1,1,1,1],
-    is_success: true
+    source_id: 0,
+    order_list:[]
+  },
+  refuse: function (e) {
+    wx.showToast({
+      title: '已拒绝',
+      icon: 'succes',
+      duration: 1000,
+      mask:true
+    })
+  },
+  allow: function (e) {
+    wx.showToast({
+      title: '已同意',
+      icon: 'succes',
+      duration: 1000,
+      mask:true
+    })
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    var id = options.id;
     wx.request({
-      url: 'https://localhost:8080/order',
-      data: {
-        user_id: 0
-      },
-      responseType: JSON,
-      success: (res) => {
-        var list = res.data.data.list
-        this.setData({
-          order_list: list,
-          is_success: true
-        })
-      },
-      fail: (err) => {
-        console.log(err)
-      }
-    })
-  },
-  loadSource: function (id) {
-    wx.request({
-      url: 'https://localhost:8080/source',
-      data: {
-        id: id
-      },
+      url: '',
       responseType:JSON,
       success: (res) => {
-        return res.data.data
+        this.setData({
+          order_list: res.data.data
+        })
       }
     })
   },
