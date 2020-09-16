@@ -35,3 +35,7 @@
   color: #333;
   padding-top: 5px;
 }
+
+button {
+  color: red;
+}

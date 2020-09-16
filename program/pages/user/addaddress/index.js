@@ -1,4 +1,5 @@
 var index = 0;
+const app = getApp();
 Page({
   data:{
     name:"请填写您的姓名",
@@ -24,11 +25,23 @@ Page({
     }else{
       flag=true;
       console.log('form发生了submit事件，携带数据为：', e.detail.value)
+      wx.request({
+        url: 'http://localhost:8080/user/address',
+        data: {
+          username: e.detail.value.name,
+          tel: e.detail.value.tel,
+          area: e.detail.value.addre,
+          address: e.detail.value.door
+        },
+        method:"POST",
+        success: (res) => {
+          console.log(success)
+        }
+      })
         wx.redirectTo({
         url: '../chooseAddre/chooseAddre?tel='+e.detail.value.tel+"&addre="+that.data.addreRange[e.detail.value.addre]+"&door="+e.detail.value.door+"&name="+e.detail.value.name+"&area="+that.data.areaRange[e.detail.value.area]+"&flag="+flag+"&areavalue="+e.detail.value.area+"&addrevalue="+e.detail.value.addre+"&door="+e.detail.value.door
         //？后面跟的是需要传递到下一个页面的参数
-
-      }); 
+        }); 
          console.log("传过去的地址下标是多少？"+e.detail.value.addre)
     }
     if(flag==false){

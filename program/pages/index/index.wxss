@@ -126,4 +126,9 @@ padding: 6px 0;
     justify-content:center;
     margin-top: 10px;
   }
-  
+.price {
+  color: crimson;
+}
+.title text {
+  margin-left: 8px;
+}

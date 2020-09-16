@@ -51,34 +51,29 @@ Page({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
+          console.log('begin');
         }
       })
+      
     }
 
-    //获取用户信息，存在全局变量中
-    const url=app.globalData.baseURL+"/userInfo"; 
+  },
+  login: function(e) {
+    var that = this;
     wx.request({
-      url: url,
-      success:  (res) => {
-        console.log(res.data);
-        // 赋值
-        this.setData({
-         tel:res.data.tel,
-         order:res.data.order,
-         source:res.data.source,
-         address:res.data.address,
-         money:res.data.money
-        })
+      url: app.globalData.baseURL + '/user/login',
+      data: {
+        username: that.data.userInfo.nickName
       },
-      fail(err) {
-        console.log(err)
+      success: (res) => {
+        if (res.data.code == 0) {
+          console.log('success')
+        }
+      },
+      fail: (res) => {
+        console.log('fail')
       }
     })
-    app.globalData.userdata.address=address,
-    app.globalData.userdata.money=money,
-    app.globalData.userdata.order=order,
-    app.globalData.userdata.source=source
-
   },
   getUserInfo: function(e) {
     console.log(e)

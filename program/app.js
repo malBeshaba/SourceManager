@@ -35,7 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    baseURL: "https://localhost:8080",
+    baseURL: "http://localhost:8080",
     userdata:{
       id:null,
       tel:null,

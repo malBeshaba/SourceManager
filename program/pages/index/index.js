@@ -52,36 +52,18 @@ Page({
     })
   },
   Tofind(){
-    // wx.request({
-      // url: app.globalData.baseURL+"/search",
-      // data:{
-      //   name:this.data.name
-      // },
-    //     console.log(res.data);
-    //     // 赋值
-    //     this.setData({
-          
-    //     })
-    //   },
-    //   fail(err) {
-    //     console.log(err)
-    //   }
-    // }
+    
     console.log("开始搜索")
   },
   onLoad: function (options) { 
-  
     wx.request({
-      url: app.globalData.baseURL+"/source/HomePage",
-      // data:{
-      //   key: '9843e93b87f121e83c9971f037c05135',
-      //   //num: 10
-      // },
+      url: app.globalData.baseURL+"/source/homepage",
+      // responseType:JSON,
       success:  (res) => {
         console.log(res.data);
         // 赋值
         this.setData({
-          list: res.data.
+          list: res.data.data
         })
       },
       fail(err) {
