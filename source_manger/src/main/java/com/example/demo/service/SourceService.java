@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.entity.Source;
+import com.example.demo.entity.SourceDetail;
 import com.example.demo.entity.User;
 import com.example.demo.repository.SourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class SourceService {
     private SourceRepository sourceRepository;
 
     private JSONObject getJsonResult(Iterable iterable,String msg){
-        List<Source> sourceList=new ArrayList<>();
+        List<SourceDetail> sourceList=new ArrayList<>();
         for (Object source:iterable) {
-            sourceList.add((Source) source);
+            sourceList.add((SourceDetail) source);
         }
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("code",0);
@@ -32,49 +33,47 @@ public class SourceService {
 //    }
 
     public JSONObject findByType1AndType2(int type1, int type2){
-        return getJsonResult(sourceRepository.findByType1AndType2(type1,type2),"success");
+        List<SourceDetail> list = new ArrayList<>();
+        for (Source source: sourceRepository.findByType1AndType2(type1,type2)) {
+            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+        }
+        return getJsonResult(list,"success");
     }
 
     public JSONObject findByName(String name) {
-        return getJsonResult(sourceRepository.findByName(name),"success");
+        List<SourceDetail> list = new ArrayList<>();
+        for (Source source: sourceRepository.findByName(name)) {
+            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+        }
+        return getJsonResult(list,"success");
     }
 
     public JSONObject findById(int id) {
-        return getJsonResult(sourceRepository.findById(id), "success");
+
+        List<SourceDetail> list = new ArrayList<>();
+        for (Source source: sourceRepository.findById(id)) {
+            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+        }
+        return getJsonResult(list,"success");
     }
 
     public JSONObject findHomepage() {
-        return getJsonResult(sourceRepository.findHomepage(),"success");
+        List<SourceDetail> list = new ArrayList<>();
+        for (Source source: sourceRepository.findHomepage()) {
+            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+        }
+        return getJsonResult(list,"success");
     }
 
     public JSONObject findByPublisher(String publisher) {
-        return getJsonResult(sourceRepository.findByPublisher(publisher),"success");
+        List<SourceDetail> list = new ArrayList<>();
+        for (Source source: sourceRepository.findByPublisher(publisher)) {
+            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+        }
+        return getJsonResult(list,"success");
     }
 
-//    //@Transactional
-//    public JSONObject addSource(Source source) {
-//        Source source1=new Source();
-//        sourceRepository.save(source1);
-//        JSONObject jsonObject=new JSONObject();
-//        jsonObject.put("code",0);
-//        jsonObject.put("msg","add successfully");
-//        return jsonObject;
-//    }
-
     public JSONObject addSource(String name, int type1, int type2, String publisher, String start_time, String end_time, double unit_price, String comments, String describe, int concurrent_usage, int historical_usage, int is_available) {
-//        Source source=new Source();
-//        source.setName(name);
-//        source.setConcurrent_usage(concurrent_usage);
-//        source.setDescribe(describe);
-//        source.setEnd_time(end_time);
-//        source.setHistorical_usage(historical_usage);
-//        source.setIs_available(is_available);
-//        source.setPublisher(publisher);
-//        source.setStart_time(start_time);
-//        source.setType1(type1);
-//        source.setType2(type2);
-//        source.setUnit_price(unit_price);
-//        source.setComments(comments);
         sourceRepository.insertSource(name,type1,type2,publisher,start_time,end_time,unit_price,comments,describe,concurrent_usage,historical_usage, is_available);
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("code",0);
