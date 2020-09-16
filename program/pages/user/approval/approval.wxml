@@ -1,0 +1,19 @@
+<!--pages/user/approval/approval.wxml-->
+<view class="orders">
+  <block wx:for="{{order_list}}">
+    <view class="order_approval">
+      <image src="{{item.image}}"></image>
+      <view class="info">
+        <text>{{item.title}}</text>
+        <view class="approval">
+          <text class="t">申请人：</text>
+          <text class="er">{{item.apply}}</text>
+          <view class="btn">
+            <button class="refuse" bindtap="refuse">拒绝</button>
+            <button class="allow" bindtap="allow">同意</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

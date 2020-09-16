@@ -12,10 +12,10 @@
   margin-left: 5px;
   margin-right: 5px;
   border: solid white;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
-  border-top-left-radius: 10%;
-  border-top-right-radius: 10%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
   display: flex;
   flex-direction: row;

@@ -1,66 +1,35 @@
-// pages/user/mySource.js
+const app = getApp()
+const sourceList = "/source"
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
-
+    source_type1: -1,
+    source_type2: -1,
+    list: [1,2,3,4,5,1,1,1,1,1,1,1,1,1]
   },
+  onLoad: function(e) {
+    // 获取上一个页面传值 source_type1(id) 、 source_type2(index)
+    var id = e.id;
+    var index = e.index;
+    this.setData({
+      source_type1: id,
+      source_type2: index
+    })
 
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+    // 获取资源类型列表
+    const url = app.globalData.baseURL + sourceList;
+    wx.request({
+      url: url,
+      data: {
+        source_type1: source_type1,
+        source_type2: source_type2
+      },
+      success: (res) => {
+        console.log(res.data);
+        // 赋值
+        this.setData({
+          list: res.data.data
+        })
+      }
+    })
   }
 })

@@ -18,6 +18,12 @@ Page({
       }
     ]
   },
+  set_order: function(e) {
+    var that=this;
+    wx.navigateTo({
+      url: '/pages/cart/orderList/orderList?id='+that.data.id+'&image='+that.data.imageUrl+'&name='+that.data.name+'&price='+that.data.price,
+    })
+  },
   onLoad: function(e) {
     var id = e.id
     

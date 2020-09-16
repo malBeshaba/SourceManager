@@ -19,12 +19,29 @@ form {
 .source_info image {
   height: 90%;
   width: 90px;
+  margin-left: 5px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.info .title {
+  text-align: left;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+.info .price {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-top: 5%;
+  margin-left: 10%;
 }
 
-.source_info text {
-  text-align: center;
-  margin-top: 10%;
-  margin-left: 20%;
+.info .price .money {
+  color: red;
+  padding-left: 2px;
 }
 
 .section_gap {
