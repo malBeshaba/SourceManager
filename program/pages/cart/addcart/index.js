@@ -80,22 +80,22 @@ Page({
     }),
     console.log("描述:",this.data.describe)
   },
-  bindDate1Change: function (e) {
+  bindDateChange1: function (e) {
       this.setData({
           date_start: e.detail.value
       })
   },
-  bindDate2Change: function (e) {
+  bindDateChange2: function (e) {
       this.setData({
           date_end: e.detail.value
       })
   },
-  bindTime1Change: function (e) {
+  bindTimeChange1: function (e) {
     this.setData({
         time_start: e.detail.value
     })
 },
-bindTime2Change: function (e) {
+bindTimeChange2: function (e) {
     this.setData({
         time_end: e.detail.value
     })
