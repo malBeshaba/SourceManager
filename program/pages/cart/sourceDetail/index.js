@@ -21,11 +21,15 @@ Page({
   set_order: function(e) {
     var that=this;
     wx.navigateTo({
-      url: '/pages/cart/orderList/orderList?id='+that.data.id+'&image='+that.data.imageUrl+'&name='+that.data.name+'&price='+that.data.price,
+      url: '/pages/cart/orderList/orderList?id='+that.data.id+'&name='+that.data.name+'&price='+that.data.price,
     })
+    console.log('source', this.data.imageUrl)
   },
   onLoad: function(e) {
     var id = e.id
+    this.setData({
+      id: id
+    })
     wx.request({
       url: 'http://localhost:8080/source/getById',
       data: {

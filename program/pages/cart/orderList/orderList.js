@@ -1,4 +1,5 @@
 // pages/cart/orderList/orderList.js
+const app = getApp()
 Page({
 
   /**
@@ -32,14 +33,16 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(e) {
+    console.log('id',e.id)
     this.setData({
       source: {
         id:e.id,
-        image:e.image,
+        image: 'http://localhost:8080/sourceimage/get?source_id='+e.id,
         title:e.name
       },
       price: e.price
     })
+    console.log(this.data)
   },
   checkboxChange: function(e) {
     var value = e.detail.value;
@@ -70,11 +73,13 @@ Page({
           if (res.confirm) {
               console.log('用户点击确定')
               wx.request({
-                url: 'http://localhost:8080/order/makeorder?user_id=1&source_id='+that.data.source.id+'&start_time='+that.data.date_submit[0].start+'&end_time='+that.data.date_submit[0].end+'&sum_price='+price,
+                url: 'http://localhost:8080/order/makeorder?user_id=24&source_id='+that.data.source.id+'&start_time='+that.data.date_submit[0].start+'&end_time='+that.data.date_submit[0].end+'&sum_price='+price,
                 
                 method:"POST",
                 success:  (res) => {
                   console.log(res.data);
+                  app.globalData.money -= price;
+                  console.log(app.globalData.money)
                 },
               })
               wx.navigateBack({ changed: true });

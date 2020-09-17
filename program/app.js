@@ -43,6 +43,7 @@ App({
       source:null,
       address:null,
       money:null
-    }
+    },
+    money: 1111
   }
 })

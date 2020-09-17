@@ -14,7 +14,7 @@ Page({
     order:null,
     source:null,
     address:null,
-    money:0
+    money:app.globalData.money
   },
   //事件处理函数
   bindViewTap: function() {
@@ -26,7 +26,11 @@ Page({
   //   this.onLoad();
   //   console.log("刷新")
   // },
+
   onLoad: function () {
+    this.setData({
+      money: app.globalData.money
+    })
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -88,5 +92,8 @@ Page({
     let currPage = pages[pages.length - 1];
     //当前页的options，啥意思呢，就是你可能某个函数需要刷新，但是他的参数正好是传过来的参数
     console.log(currPage.options); 
+    this.setdata({
+     money: app.globalData.money
+    })
     }
 })

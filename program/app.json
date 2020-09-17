@@ -10,8 +10,7 @@
     "pages/cart/orderList/orderList",
     "pages/user/mySource/mySource",
     "pages/user/myOrder/myOrder",
-    "pages/user/approval/approval",
-    "pages/user/order/order"
+    "pages/user/approval/approval"
   ],
   "window": {
     "backgroundTextStyle": "light",

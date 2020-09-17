@@ -15,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     console.log('onload')
+    console.log(options.name)
     wx.request({
       url: 'http://localhost:8080/order/getorder?username='+options.name,
       success: (res) => {
