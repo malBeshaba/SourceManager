@@ -3,7 +3,7 @@
   <block wx:for="{{list}}">
     <navigator url="/pages/cart/sourceDetail/index?id={{item.id}}">
       <view class="item" style="flex-direction">
-        <image src="/images/utry.jpg"></image>
+        <image src="{{item.imageUrl}}"></image>
         <view class="label" style="flex-direction">
           <text>{{item.name}}</text>
           <view class="hot" style="flex-direction">

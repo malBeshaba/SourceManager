@@ -29,6 +29,7 @@ public class UserService {
         return getJsonResult(userRepository.findByUsername(username).get(0),"success");
     }
 
+
     public JSONObject login(String username) {
         User user=new User();
         user.setUsername(username);

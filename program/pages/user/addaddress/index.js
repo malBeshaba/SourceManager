@@ -2,7 +2,7 @@ var index = 0;
 const app = getApp();
 Page({
   data:{
-    name: app.globalData.userInfo.nickName,
+    name: "请输入姓名",
     tel:"请填写您的联系方式",
     addreValue:0,
     door:"街道门牌信息",
@@ -64,11 +64,12 @@ Page({
       wx.request({
         url: app.globalData.baseURL + '/user/address',
         data: {
-          username: app.globalData.userInfo.nickName
+          username: e.name
         },
         success: res => {
           var addr = res.data.data.address.split('#');
           this.setData({
+            name: e.name,
             tel: res.data.data.tel,
             area: addr[0],
             door: addr[1]

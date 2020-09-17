@@ -36,7 +36,7 @@ Page({
         // 赋值
         var data = res.data.data[0]
         this.setData({
-          imageUrl: data.imageUrl,
+          imageUrl: data.imgUrl,
           name: data.name,
           type: data.type,
           describe: data.describe,

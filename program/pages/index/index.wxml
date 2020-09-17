@@ -57,9 +57,9 @@
     </view>
 
     <view class="item"  wx:for="{{list}}">
-         <navigator hover-class="none" url="/pages/cart/sourceDetail/index">
+         <navigator hover-class="none" url="/pages/cart/sourceDetail/index?id={{item.id}}">
           <view style="flex-direction:column;" display="flex">
-              <image style='width:100%;height:100px;'src="{{item.picUrl}}"></image>
+              <image style='width:100%;height:100px;'src="{{item.imgUrl}}"></image>
           </view>
           <view class="title">
             <text class='text'>{{item.name}}</text>

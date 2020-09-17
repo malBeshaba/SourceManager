@@ -69,6 +69,12 @@ public class SourceController {
         return sourceService.addSource(name,type1,type2,publisher,start_time,end_time,unit_price,comments,describe,concurrent_usage,historical_usage,is_available);
     }
 
+    @GetMapping("getByPublisher")
+    @ResponseBody
+    public JSONObject getByPublisher(@RequestParam("publisher") String name) {
+        return sourceService.findByPublisher(name);
+    }
+
 //    目前按类传有点问题 写不进数据库。
 //
 //    我想了两种 一种是像登录那样 先传个资源名字新建一个资源 再把详细信息update进去。

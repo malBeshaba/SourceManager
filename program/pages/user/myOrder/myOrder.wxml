@@ -3,14 +3,14 @@
 <view class="orders">
   <block wx:for="{{order_list}}">
     <view class="order">
-      <image src="/images/utry.jpg"></image>
+      <image src="{{item.source_img}}"></image>
       <view class="order_info">
-        <text class="title">{{loadSource(item.source_id)}}</text>
+        <text class="title">{{item.sourceName}}</text>
         <text class="time">
           订单持续时间{{item.start_time}}-{{item.end_time}}
         </text>
         <text class="type">
-          订单状态:{{item.type}}
+          订单状态:{{item.is_agreed}}
         </text>
       </view>
     </view>

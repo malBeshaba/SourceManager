@@ -61,7 +61,6 @@ public class SourceImageService {
             Class.forName(JDBC_DRIVER);
 
             // 打开链接
-            System.out.println("连接数据库...");
             connection = DriverManager.getConnection(DB_URL,USER,PASS);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -95,7 +94,6 @@ public class SourceImageService {
                 in.read(buff, 0, in.available());
                 in.close();
             }
-            System.out.println("success: select image from image. id:"+id);
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         } finally {

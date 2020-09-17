@@ -2,16 +2,17 @@
 <view class="orders">
   <block wx:for="{{order_list}}">
     <view class="order_approval">
-      <image src="{{item.image}}"></image>
+      <image src="{{item.source_img}}"></image>
       <view class="info">
-        <text>{{item.title}}</text>
+        <text>{{item.sourceName}}</text>
         <view class="approval">
           <text class="t">申请人：</text>
-          <text class="er">{{item.apply}}</text>
-          <view class="btn">
-            <button class="refuse" bindtap="refuse">拒绝</button>
-            <button class="allow" bindtap="allow">同意</button>
+          <text class="er">{{item.subsecriber}}</text>
+          <view class="btn" wx:if="{{item.sum_price==0}}">
+            <button class="refuse" bindtap="refuse" id="{{item.id}}">拒绝</button>
+            <button class="allow" bindtap="allow" id="{{item.id}}">同意</button>
           </view>
+          <view class="ttt" wx:if="{{item.sum_price!=0}}">无需审批</view>
         </view>
       </view>
     </view>

@@ -21,6 +21,9 @@ public interface OrderRepository extends CrudRepository<Order,Integer> {
     @Query(value = "select * from sourcemanagerdb.order where sourcemanagerdb.order.subscriber_id = :user_id",nativeQuery = true)
     List<Order> findByUserId(@Param("user_id") int user_id);
 
+    @Query(value = "select * from sourcemanagerdb.order where sourcemanagerdb.order.source_id = :user_id",nativeQuery = true)
+    List<Order> findBySourceId(@Param("user_id")int source_id);
+
     @Modifying
     @Transactional
     @Query(value = "delete from sourcemanagerdb.order where sourcemanagerdb.order.id = ?1",nativeQuery = true)

@@ -11,7 +11,7 @@
     <view class="this">
       <text class="price">¥{{price}}</text>
       <view class="hot" style="flex-direction">
-        <image src="/images/fire.png"></image>
+        <image src="{{imageUrl}}"></image>
         <text>{{total_use_num}}</text>
       </view>
     </view>

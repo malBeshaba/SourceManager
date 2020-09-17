@@ -3,6 +3,7 @@ package com.example.demo.controller;
 
 import com.example.demo.JsonResult;
 import com.example.demo.entity.Order;
+import com.example.demo.entity.OrderDetail;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,8 +26,16 @@ public class OrderController {
             value ="/getorder",
             produces = "application/json;"+"charset=utf-8"
     )
-    public JsonResult<List<Order>> findByUsername(@RequestParam("username") String username){
-        return new JsonResult<List<Order>>(orderService.findByUsername(username));
+    public JsonResult<List<OrderDetail>> findByUsername(@RequestParam("username") String username){
+        return new JsonResult<List<OrderDetail>>(orderService.findByUsername(username));
+    }
+
+    @GetMapping(
+            value = "/getBySourceId",
+            produces = "application/json;"+"charset=utf-8"
+    )
+    public JsonResult<List<OrderDetail>> findBySourceId(@RequestParam("source_id") int id) {
+        return new JsonResult<>(orderService.findBySourceId(id));
     }
 
     /**
@@ -62,7 +71,7 @@ public class OrderController {
             value = "/checkout",
             produces = "application/json;"+"charset=utf-8"
     )
-    public JsonResult updateIs_agreed(int order_id,int is_agreed){
+    public JsonResult updateIs_agreed(@RequestParam("order_id") int order_id,@RequestParam("is_agreed") int is_agreed){
         orderService.updateIs_agreed(order_id,is_agreed);
         return new JsonResult();
     }

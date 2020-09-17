@@ -69,20 +69,15 @@ Page({
       success: function (res) {
           if (res.confirm) {
               console.log('用户点击确定')
-              wx.navigateBack({ changed: true });
               wx.request({
-                url: 'https://localhost:8080/order',
-                data: {
-                  user_id: 0,
-                  source_id: this.data.source.id,
-                  date: this.data.date_submit
-                },
+                url: 'http://localhost:8080/order/makeorder?user_id=1&source_id='+that.data.source.id+'&start_time='+that.data.date_submit[0].start+'&end_time='+that.data.date_submit[0].end+'&sum_price='+price,
+                
                 method:"POST",
-                responseType:JSON,
                 success:  (res) => {
                   console.log(res.data);
                 },
               })
+              wx.navigateBack({ changed: true });
           }else{
              console.log('用户点击取消')
           }

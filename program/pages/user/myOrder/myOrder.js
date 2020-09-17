@@ -6,6 +6,7 @@ Page({
    */
   data: {
     order_list:[1,1,1,1,1,1],
+    source:[],
     is_success: true
   },
 
@@ -13,14 +14,12 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    console.log('onload')
     wx.request({
-      url: 'https://localhost:8080/order',
-      data: {
-        user_id: 0
-      },
-      responseType: JSON,
+      url: 'http://localhost:8080/order/getorder?username='+options.name,
       success: (res) => {
-        var list = res.data.data.list
+        var list = res.data.data
+        console.log(list)
         this.setData({
           order_list: list,
           is_success: true
@@ -28,18 +27,6 @@ Page({
       },
       fail: (err) => {
         console.log(err)
-      }
-    })
-  },
-  loadSource: function (id) {
-    wx.request({
-      url: 'https://localhost:8080/source',
-      data: {
-        id: id
-      },
-      responseType:JSON,
-      success: (res) => {
-        return res.data.data
       }
     })
   },

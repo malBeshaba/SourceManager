@@ -1,27 +1,20 @@
 const app = getApp()
-const sourceList = "/source"
+const sourceList = "/source/getByPublisher"
 Page({
   data: {
-    source_type1: -1,
-    source_type2: -1,
+    publisher: '',
     list: [1,2,3,4,5,1,1,1,1,1,1,1,1,1]
   },
   onLoad: function(e) {
     // 获取上一个页面传值 source_type1(id) 、 source_type2(index)
-    var id = e.id;
-    var index = e.index;
-    this.setData({
-      source_type1: id,
-      source_type2: index
-    })
+    var publisher = e.user;
 
     // 获取资源类型列表
     const url = app.globalData.baseURL + sourceList;
     wx.request({
       url: url,
       data: {
-        source_type1: source_type1,
-        source_type2: source_type2
+        publisher: publisher
       },
       success: (res) => {
         console.log(res.data);

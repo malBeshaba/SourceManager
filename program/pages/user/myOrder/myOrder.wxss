@@ -31,5 +31,15 @@
   display: flex;
   flex-direction: column;
   padding-left: 20px;
-  margin-bottom: 30px;
+}
+.title {
+  margin-bottom: -20px;
+}
+
+.time {
+  margin-bottom: -20px;
+}
+
+.type {
+  margin-bottom: 20px;
 }

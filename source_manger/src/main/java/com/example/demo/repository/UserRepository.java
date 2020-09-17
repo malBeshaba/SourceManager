@@ -16,4 +16,7 @@ public interface UserRepository extends CrudRepository<User,Integer> {
 
     @Query(value = "select * from sourcemanagerdb.users where sourcemanagerdb.users.username = :username",nativeQuery = true)
     List<User> findIdByUsername(@Param("username") String username);
+
+    @Query(value = "select * from sourcemanagerdb.users where sourcemanagerdb.users.id = :username",nativeQuery = true)
+    List<User> findByUserId(@Param("username") int id);
 }

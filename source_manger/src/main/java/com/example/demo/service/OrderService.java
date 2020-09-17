@@ -1,9 +1,7 @@
 package com.example.demo.service;
 
 
-import com.example.demo.entity.Order;
-import com.example.demo.entity.Source;
-import com.example.demo.entity.User;
+import com.example.demo.entity.*;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.repository.SourceRepository;
 import com.example.demo.repository.UserRepository;
@@ -11,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 //import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 //import java.util.Optional;
 
@@ -26,11 +25,33 @@ public class OrderService {
     public List<Order> findByUserId(int user_id){
         return orderRepository.findByUserId(user_id);
     }
-    public List<Order> findByUsername(String username){
-        User users = new User();
+
+    public List<OrderDetail> findBySourceId(int source_id) {
+        List<Order> orders;
+        List<OrderDetail> orderDetails = new ArrayList<>();
+        orders = orderRepository.findBySourceId(source_id);
+        for (Order order: orders) {
+            Source source = sourceRepository.findByID(source_id).get(0);
+            OrderDetail detail = new OrderDetail(order, new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+            User user = usersRepository.findByUserId(order.getSubscriber_id()).get(0);
+            detail.setSubsecriber(user.getUsername());
+            orderDetails.add(detail);
+        }
+        return orderDetails;
+    }
+
+    public List<OrderDetail> findByUsername(String username){
         List<User> usersList = usersRepository.findIdByUsername(username);
+        List<Order> orders = new ArrayList<>();
+        List<OrderDetail> orderDetails = new ArrayList<>();
+
         if(!usersList.isEmpty()){
-            return findByUserId(usersList.get(0).getId());
+            orders = findByUserId(usersList.get(0).getId());
+            for (Order order: orders) {
+                Source source = sourceRepository.findByID(order.getSource_id()).get(0);
+                orderDetails.add(new OrderDetail(order, new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId())));
+            }
+            return orderDetails;
         } else{
             System.out.println("usersList是空的");
             return null;
