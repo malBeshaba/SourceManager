@@ -92,7 +92,7 @@ Page({
     let currPage = pages[pages.length - 1];
     //当前页的options，啥意思呢，就是你可能某个函数需要刷新，但是他的参数正好是传过来的参数
     console.log(currPage.options); 
-    this.setdata({
+    this.setData({
      money: app.globalData.money
     })
     }

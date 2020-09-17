@@ -35,7 +35,7 @@ public class SourceService {
     public JSONObject findByType1AndType2(int type1, int type2){
         List<SourceDetail> list = new ArrayList<>();
         for (Source source: sourceRepository.findByType1AndType2(type1,type2)) {
-            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+            list.add(new SourceDetail(source, "http://172.23.41.146:8080/sourceimage/get?source_id="+source.getId()));
         }
         return getJsonResult(list,"success");
     }
@@ -43,7 +43,7 @@ public class SourceService {
     public JSONObject findByName(String name) {
         List<SourceDetail> list = new ArrayList<>();
         for (Source source: sourceRepository.findByName(name)) {
-            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+            list.add(new SourceDetail(source, "http://172.23.41.146:8080/sourceimage/get?source_id="+source.getId()));
         }
         return getJsonResult(list,"success");
     }
@@ -52,7 +52,7 @@ public class SourceService {
 
         List<SourceDetail> list = new ArrayList<>();
         for (Source source: sourceRepository.findById(id)) {
-            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+            list.add(new SourceDetail(source, "http://172.23.41.146:8080/sourceimage/get?source_id="+source.getId()));
         }
         return getJsonResult(list,"success");
     }
@@ -60,7 +60,7 @@ public class SourceService {
     public JSONObject findHomepage() {
         List<SourceDetail> list = new ArrayList<>();
         for (Source source: sourceRepository.findHomepage()) {
-            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+            list.add(new SourceDetail(source, "http://172.23.41.146:8080/sourceimage/get?source_id="+source.getId()));
         }
         return getJsonResult(list,"success");
     }
@@ -68,7 +68,7 @@ public class SourceService {
     public JSONObject findByPublisher(String publisher) {
         List<SourceDetail> list = new ArrayList<>();
         for (Source source: sourceRepository.findByPublisher(publisher)) {
-            list.add(new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+            list.add(new SourceDetail(source, "http://172.23.41.146:8080/sourceimage/get?source_id="+source.getId()));
         }
         return getJsonResult(list,"success");
     }

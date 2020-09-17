@@ -32,7 +32,7 @@ public class OrderService {
         orders = orderRepository.findBySourceId(source_id);
         for (Order order: orders) {
             Source source = sourceRepository.findByID(source_id).get(0);
-            OrderDetail detail = new OrderDetail(order, new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId()));
+            OrderDetail detail = new OrderDetail(order, new SourceDetail(source, "http://172.23.41.146:8080/sourceimage/get?source_id="+source.getId()));
             User user = usersRepository.findByUserId(order.getSubscriber_id()).get(0);
             detail.setSubsecriber(user.getUsername());
             orderDetails.add(detail);
@@ -49,7 +49,7 @@ public class OrderService {
             orders = findByUserId(usersList.get(0).getId());
             for (Order order: orders) {
                 Source source = sourceRepository.findByID(order.getSource_id()).get(0);
-                orderDetails.add(new OrderDetail(order, new SourceDetail(source, "http://localhost:8080/sourceimage/get?source_id="+source.getId())));
+                orderDetails.add(new OrderDetail(order, new SourceDetail(source, "http://172.23.41.146:8080/sourceimage/get?source_id="+source.getId())));
             }
             return orderDetails;
         } else{

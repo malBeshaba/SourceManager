@@ -1,4 +1,5 @@
 // pages/user/myOrder.js
+const app = getApp()
 Page({
 
   /**
@@ -17,7 +18,7 @@ Page({
     console.log('onload')
     console.log(options.name)
     wx.request({
-      url: 'http://localhost:8080/order/getorder?username='+options.name,
+      url: app.globalData.baseURL +'/order/getorder?username='+options.name,
       success: (res) => {
         var list = res.data.data
         console.log(list)

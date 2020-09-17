@@ -37,7 +37,7 @@ Page({
     this.setData({
       source: {
         id:e.id,
-        image: 'http://localhost:8080/sourceimage/get?source_id='+e.id,
+        image: app.globalData.baseURL + '/sourceimage/get?source_id='+e.id,
         title:e.name
       },
       price: e.price
@@ -73,7 +73,7 @@ Page({
           if (res.confirm) {
               console.log('用户点击确定')
               wx.request({
-                url: 'http://localhost:8080/order/makeorder?user_id=24&source_id='+that.data.source.id+'&start_time='+that.data.date_submit[0].start+'&end_time='+that.data.date_submit[0].end+'&sum_price='+price,
+                url:app.globalData.baseURL+ '/order/makeorder?user_id=24&source_id='+that.data.source.id+'&start_time='+that.data.date_submit[0].start+'&end_time='+that.data.date_submit[0].end+'&sum_price='+price,
                 
                 method:"POST",
                 success:  (res) => {

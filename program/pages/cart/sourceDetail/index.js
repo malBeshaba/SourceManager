@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
   data: {
     id: 0,
@@ -31,7 +32,7 @@ Page({
       id: id
     })
     wx.request({
-      url: 'http://localhost:8080/source/getById',
+      url: app.globalData.baseURL + '/source/getById',
       data: {
         id: id
       },
